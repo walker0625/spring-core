@@ -1,12 +1,13 @@
 package com.jon.springcore.order;
 
-import com.jon.springcore.AppConfig;
-import com.jon.springcore.discount.FixDiscountPolicy;
-import com.jon.springcore.member.*;
+import com.jon.springcore.member.Grade;
+import com.jon.springcore.member.Member;
+import com.jon.springcore.member.MemberService;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 class OrderServiceImplTest {
 
@@ -15,9 +16,12 @@ class OrderServiceImplTest {
 
     @BeforeEach
     void beforeEach() {
-        AppConfig appConfig = new AppConfig();
-        memberService = appConfig.memberService();
-        orderService = appConfig.orderService();
+        ApplicationContext ac = new AnnotationConfigApplicationContext(com.jon.springcore.AppConfig.class);
+        memberService = ac.getBean("memberService", MemberService.class);
+        orderService = ac.getBean("orderService", OrderService.class);
+
+        //memberService = new MemberServiceImpl(new MemoryMemberRepository());
+        //orderService = new OrderServiceImpl(new MemoryMemberRepository(), new RateDiscountPolicy());
     }
 
     @Test
