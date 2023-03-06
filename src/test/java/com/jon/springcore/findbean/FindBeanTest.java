@@ -97,6 +97,7 @@ public class FindBeanTest {
         }
     }
 
+
     @Configuration
     static class SameBeanConfig {
 
