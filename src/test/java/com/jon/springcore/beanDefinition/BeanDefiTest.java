@@ -1,4 +1,4 @@
-package com.jon.springcore.BeanDefinition;
+package com.jon.springcore.beanDefinition;
 
 import com.jon.springcore.AppConfig;
 import org.junit.jupiter.api.Test;
