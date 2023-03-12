@@ -1,10 +1,11 @@
 package com.jon.springcore.discount;
 
+import com.jon.springcore.annotation.MainDiscountPolicy;
 import com.jon.springcore.member.Grade;
 import com.jon.springcore.member.Member;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
+//@MainDiscountPolicy
 @Component
 public class RateDiscountPolicy implements DiscountPolicy{
 
